@@ -1,0 +1,25 @@
+{
+  "name_ca": "Exemple 2",
+  "name_es": "Ejemplo 2",
+  "location": "Catalunya",
+  "type": "connectada",
+  "date": "2026-08-06",
+  "published": true,
+  "featured": false,
+  "example": true,
+  "panelsKwp": 6.3,
+  "panels": 14,
+  "optimizers": false,
+  "inverterKw": 5,
+  "consumptionKwh": 7600,
+  "productionKwh": 8500,
+  "paybackYears": 6.9,
+  "costEur": 8200,
+  "photos": [
+    "media/projectes/exemple-02-1.jpg",
+    "media/projectes/exemple-02-2.jpg",
+    "media/projectes/exemple-02-3.jpg",
+    "media/projectes/exemple-02-4.jpg"
+  ],
+  "illustration": "house"
+}

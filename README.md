@@ -26,6 +26,7 @@ Lluís edita en Pages CMS ──► commit en GitHub (data/projects/*.json, medi
 | `.pages.yml` | Definición del formulario del panel (Pages CMS). |
 | `scripts/build.mjs` | Une los proyectos en `data/projects-index.js` y prepara `_site/` con las fotos optimizadas. |
 | `.github/workflows/deploy.yml` | Publicación automática en cada cambio en `main`. |
+| `.github/workflows/clean-images.yml` · `scripts/clean-images.mjs` | Quita el GPS y demás metadatos de cada foto subida (p. ej. desde el panel) y reduce las de más de 2000 px. |
 
 ## Ver la web en local
 
@@ -86,8 +87,8 @@ Lleva un campo trampa oculto para frenar el spam de robots.
 ---
 
 ## Antes de publicar: pendientes de contenido
-- [ ] Teléfono real (ahora `+34 600 000 000` en `index.html`, contacto y pie).
+- [x] Teléfono real (611 603 902).
 - [ ] Datos definitivos de **Casa Dolors** (la nota y el estudio no coinciden: 6,6 vs 9,84 kWp, 5 vs 12 kW, 10,2 vs 16 kWh).
 - [ ] Permiso por escrito de los clientes para publicar fotos de su casa.
-- [ ] Borrar los 4 proyectos de ejemplo (`data/projects/exemple-*.json`) o sustituirlos por reales.
+- [ ] Completar los proyectos «Exemple 1-11» (fotos reales, datos ESTIMADOS: nombre, comarca, ficha) y quitarles la marca de ejemplo.
 - [ ] Página de política de privacidad (RGPD) enlazada desde el formulario.

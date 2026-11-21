@@ -1,0 +1,45 @@
+name: Clean uploaded photos
+
+# Removes GPS and other metadata from photos as soon as they are pushed
+# (e.g. uploaded from Pages CMS), and downsizes very large ones.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'media/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: clean-images
+  cancel-in-progress: false
+
+jobs:
+  clean:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Strip metadata and downsize
+        run: node scripts/clean-images.mjs media
+      - name: Commit cleaned photos
+        run: |
+          if git diff --quiet; then
+            echo "Nothing to clean"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add media
+          git commit -m "Strip metadata from uploaded photos"
+          git pull --rebase origin main
+          git push origin HEAD:main

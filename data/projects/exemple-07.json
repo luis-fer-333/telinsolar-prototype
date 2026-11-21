@@ -1,0 +1,32 @@
+{
+  "name_ca": "Exemple 7",
+  "name_es": "Ejemplo 7",
+  "location": "Vallès Oriental",
+  "type": "connectada",
+  "date": "2026-04-17",
+  "published": true,
+  "featured": false,
+  "example": true,
+  "panelsKwp": 9.0,
+  "panels": 20,
+  "optimizers": false,
+  "inverterKw": 7,
+  "consumptionKwh": 11000,
+  "storageKwh": 10,
+  "batteries": 2,
+  "loads": [
+    {
+      "key": "pool"
+    }
+  ],
+  "productionKwh": 12200,
+  "paybackYears": 9.8,
+  "costEur": 16700,
+  "photos": [
+    "media/projectes/exemple-07-1.jpg",
+    "media/projectes/exemple-07-2.jpg",
+    "media/projectes/exemple-07-3.jpg",
+    "media/projectes/exemple-07-4.jpg"
+  ],
+  "illustration": "house"
+}

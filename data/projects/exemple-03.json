@@ -1,0 +1,33 @@
+{
+  "name_ca": "Exemple 3",
+  "name_es": "Ejemplo 3",
+  "location": "Catalunya",
+  "type": "connectada",
+  "date": "2026-07-16",
+  "published": true,
+  "featured": false,
+  "example": true,
+  "panelsKwp": 27.0,
+  "panels": 60,
+  "optimizers": false,
+  "inverterKw": 24.3,
+  "consumptionKwh": 43700,
+  "loads": [
+    {
+      "key": "machinery"
+    },
+    {
+      "key": "pump"
+    }
+  ],
+  "productionKwh": 36400,
+  "paybackYears": 7.1,
+  "costEur": 27000,
+  "photos": [
+    "media/projectes/exemple-03-1.jpg",
+    "media/projectes/exemple-03-2.jpg",
+    "media/projectes/exemple-03-3.jpg",
+    "media/projectes/exemple-03-4.jpg"
+  ],
+  "illustration": "nave"
+}

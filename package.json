@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "dist": "node scripts/build.mjs --dist"
+    "dist": "node scripts/build.mjs --dist",
+    "clean-images": "node scripts/clean-images.mjs media"
   },
   "devDependencies": {
     "sharp": "0.33.5"

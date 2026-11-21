@@ -66,9 +66,10 @@ content:
         type: boolean
         default: false
       - name: example
-        label: Dades d'exemple
+        label: Dades d'exemple / provisionals
+        description: "Mostra l'etiqueta «Exemple» al web. Desmarca-ho quan el nom i les dades siguin els reals."
         type: boolean
-        hidden: true
+        default: false
 
       # ---------- Descripció ----------
       - name: description_ca

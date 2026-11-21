@@ -1,0 +1,29 @@
+{
+  "name_ca": "Exemple 11",
+  "name_es": "Ejemplo 11",
+  "location": "Catalunya",
+  "type": "connectada",
+  "date": "2025-10-02",
+  "published": true,
+  "featured": false,
+  "example": true,
+  "panelsKwp": 4.5,
+  "panels": 10,
+  "optimizers": false,
+  "inverterKw": 4,
+  "consumptionKwh": 5500,
+  "loads": [
+    {
+      "key": "pool"
+    }
+  ],
+  "productionKwh": 6100,
+  "paybackYears": 6.8,
+  "costEur": 5800,
+  "photos": [
+    "media/projectes/exemple-11-1.jpg",
+    "media/projectes/exemple-11-2.jpg",
+    "media/projectes/exemple-11-3.jpg"
+  ],
+  "illustration": "house"
+}

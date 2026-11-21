@@ -1,0 +1,35 @@
+{
+  "name_ca": "Exemple 9",
+  "name_es": "Ejemplo 9",
+  "location": "Vallès Oriental",
+  "type": "connectada",
+  "date": "2025-10-30",
+  "published": true,
+  "featured": false,
+  "example": true,
+  "panelsKwp": 10.8,
+  "panels": 24,
+  "optimizers": false,
+  "inverterKw": 9,
+  "consumptionKwh": 13100,
+  "storageKwh": 10,
+  "batteries": 2,
+  "loads": [
+    {
+      "key": "pool"
+    },
+    {
+      "key": "aerothermal"
+    }
+  ],
+  "productionKwh": 14600,
+  "paybackYears": 9.3,
+  "costEur": 19000,
+  "photos": [
+    "media/projectes/exemple-09-1.jpg",
+    "media/projectes/exemple-09-2.jpg",
+    "media/projectes/exemple-09-3.jpg",
+    "media/projectes/exemple-09-4.jpg"
+  ],
+  "illustration": "house"
+}

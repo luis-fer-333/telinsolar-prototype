@@ -1,0 +1,24 @@
+{
+  "name_ca": "Exemple 5",
+  "name_es": "Ejemplo 5",
+  "location": "Vallès Oriental",
+  "type": "connectada",
+  "date": "2026-06-10",
+  "published": true,
+  "featured": false,
+  "example": true,
+  "panelsKwp": 4.5,
+  "panels": 10,
+  "optimizers": false,
+  "inverterKw": 4,
+  "consumptionKwh": 5500,
+  "productionKwh": 6100,
+  "paybackYears": 6.8,
+  "costEur": 5800,
+  "photos": [
+    "media/projectes/exemple-05-1.jpg",
+    "media/projectes/exemple-05-2.jpg",
+    "media/projectes/exemple-05-3.jpg"
+  ],
+  "illustration": "house"
+}
