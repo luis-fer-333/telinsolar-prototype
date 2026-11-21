@@ -387,7 +387,8 @@ form.addEventListener('submit', async (e) => {
             headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
             body: JSON.stringify({
                 ...(formConfig.accessKey ? { access_key: formConfig.accessKey } : {}),
-                subject: `Nova sol·licitud web — ${values.name}`,
+                subject: `Nova sol·licitud web — ${values.name}`,   // Web3Forms
+                _subject: `Nova sol·licitud web — ${values.name}`,  // Formspree
                 from_name: 'Web TELinSOLAR',
                 Nom: values.name,
                 'Telèfon': values.phone,
