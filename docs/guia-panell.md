@@ -25,6 +25,7 @@
 - **Editar**: obre la instal·lació, canvia el que calgui i desa.
 - **Amagar sense esborrar**: desmarca **«Publicat al web»** i desa.
 - **Que surti la primera**: marca **«Destacat»**.
+- **Treure l'etiqueta «Exemple»**: quan hagis posat el nom i les dades reals, desmarca **«Dades d'exemple / provisionals»**.
 - **Esborrar**: des de la llista, menú «…» de la instal·lació → *Delete*.
 
 ## Bones pràctiques
