@@ -263,6 +263,7 @@ const setLang = (next, save = true) => {
     applyStatic();
     renderProjects();
     langButtons.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
+    document.querySelectorAll('.wa-link').forEach(a => { a.href = `https://wa.me/34611603902?text=${encodeURIComponent(t('waText'))}`; });
     if (formNote.textContent) formNote.textContent = '';
     if (save) storage.set('telinsolar-lang', lang);
 };
