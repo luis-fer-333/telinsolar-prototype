@@ -26,6 +26,7 @@ Lluís edita en Pages CMS ──► commit en GitHub (data/projects/*.json, medi
 | `.pages.yml` | Definición del formulario del panel (Pages CMS). |
 | `scripts/build.mjs` | Une los proyectos en `data/projects-index.js` y prepara `_site/` con las fotos optimizadas. |
 | `.github/workflows/deploy.yml` | Publicación automática en cada cambio en `main`. |
+| `.github/workflows/clean-images.yml` · `scripts/clean-images.mjs` | Quita el GPS y demás metadatos de cada foto subida (p. ej. desde el panel) y reduce las de más de 2000 px. |
 
 ## Ver la web en local
 
