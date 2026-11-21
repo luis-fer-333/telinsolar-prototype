@@ -117,6 +117,17 @@ const projectHtml = (p, i) => {
     const loads = (p.loads || []).map(l =>
         `<li>${esc(t('load_' + l.key))}${l.detail ? ` <span>${esc(l.detail)}</span>` : ''}</li>`).join('');
 
+    const eq = p.equipment || {};
+    const equipment = ['panels', 'inverter', 'battery']
+        .filter(k => eq[k])
+        .map(k => [k, localized(eq[k])]);
+    const equipmentHtml = equipment.length ? `
+            <div class="project-equip">
+                <p>${esc(t('equipment'))}</p>
+                <ul>${equipment.map(([k, v]) =>
+                    `<li><span>${esc(t('equip_' + k))}</span><strong>${esc(v)}</strong></li>`).join('')}</ul>
+            </div>` : '';
+
     const rows = [
         [t('specType'), `${t('type_' + p.type)}${hasBattery ? ` ${t('withBattery')}` : ''}`],
         [t('specPanelsKwp'), `${smart(p.panelsKwp)} kWp`],
@@ -130,6 +141,7 @@ const projectHtml = (p, i) => {
         [t('specProduction'), `${num(p.productionKwh)} kWh`],
         [t('specPayback'), t('years', { n: smart(p.paybackYears) })],
         [t('specCost'), `${num(p.costEur)} €`],
+        ...equipment.map(([k, v]) => [t('equip_' + k), v]),
     ].map(([k, v]) => `<tr><th scope="row">${esc(k)}</th><td>${esc(v)}</td></tr>`).join('');
 
     return `
@@ -151,6 +163,7 @@ const projectHtml = (p, i) => {
                 <div><dt>${esc(t('kpiPayback'))}</dt><dd>${esc(t('years', { n: smart(p.paybackYears) }))}</dd></div>
                 <div><dt>${esc(t('kpiCost'))}</dt><dd>${num(p.costEur)} €</dd></div>
             </dl>
+            ${equipmentHtml}
             <div class="project-loads">
                 <p><span>${esc(t('consumption'))}</span> <strong>${num(p.consumptionKwh)} kWh</strong></p>
                 ${loads ? `<ul>${loads}</ul>` : ''}

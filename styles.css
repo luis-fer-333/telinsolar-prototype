@@ -330,6 +330,12 @@ h1, h2, h3, h4 { font-family: "Sora", sans-serif; line-height: 1.15; font-weight
 .project-kpis dd { font-family: "Sora", sans-serif; font-weight: 700; font-size: 1.05rem; color: var(--sky); font-variant-numeric: tabular-nums; }
 .project-kpis dd small { font-family: "Inter", sans-serif; font-weight: 500; font-size: .78rem; color: var(--muted); margin-left: 1px; }
 
+.project-equip { padding: 14px 0; border-bottom: 1px solid var(--line); }
+.project-equip p { font-size: .74rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 8px; }
+.project-equip ul { display: grid; gap: 6px; }
+.project-equip li { display: flex; justify-content: space-between; gap: 12px; font-size: .88rem; }
+.project-equip li span { color: var(--muted); }
+.project-equip li strong { font-family: "Sora", sans-serif; font-weight: 600; color: var(--sky); text-align: right; }
 .project-loads { padding: 14px 0 4px; }
 .project-loads p { display: flex; justify-content: space-between; gap: 10px; font-size: .88rem; color: var(--muted); margin-bottom: 10px; }
 .project-loads p strong { font-family: "Sora", sans-serif; color: var(--ink); font-variant-numeric: tabular-nums; }

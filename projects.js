@@ -21,6 +21,9 @@
  *   productionKwh   Producción anual, en kWh.
  *   paybackYears    Amortización, en años.
  *   costEur         Coste aproximado, en euros.
+ *   equipment       Marca y modelo de los equipos (opcional; se omite lo que no se rellene).
+ *                   Texto, o { es, ca } si hay que traducir algo:
+ *                     { panels: 'AIKO A615-MAH72Mw', inverter: 'Deye SUN-12K-SG04LP1', battery: 'Deye SE-F16' }
  *   illustration    Dibujo si no hay foto: 'house', 'house-bat', 'nave', 'campo', 'edificio'.
  *   media           Fotos y/o vídeos (opcional). Un elemento o una lista; con varios se muestran
  *                   en un carrusel con flechas. Ejemplos:
@@ -50,6 +53,12 @@ window.TELINSOLAR_PROJECTS = [
         productionKwh: 2500,
         paybackYears: 3.5,
         costEur: 12000,
+        // Solo marca: los modelos exactos dependen de confirmar los datos (el estudio indica 9,84 kWp / 12 kW / 16 kWh).
+        equipment: {
+            panels: 'AIKO',
+            inverter: { es: 'Deye (híbrido)', ca: 'Deye (híbrid)' },
+            battery: { es: 'Deye (litio 48 V)', ca: 'Deye (liti 48 V)' },
+        },
         illustration: 'house-bat',
         media: [
             {
