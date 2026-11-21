@@ -21,6 +21,9 @@ window.TELINSOLAR_I18N = {
             'nav.cta': 'Demana el teu estudi',
             'nav.lang': 'Idioma',
             'nav.menu': 'Obrir menú',
+            'wa.label': 'Escriu-nos per WhatsApp',
+            'wa.short': 'WhatsApp',
+            'wa.contact': 'WhatsApp: 611 603 902',
 
             'hero.eyebrow': 'Energia solar fotovoltaica · Vallès Oriental',
             'hero.title': 'La teva energia de <br><span class="grad">proximitat honesta</span>',
@@ -218,6 +221,7 @@ window.TELINSOLAR_I18N = {
             altIllustration: 'Ilustración de la instalación «{name}»',
             formError: 'Por favor, rellena tu nombre, un teléfono y la dirección de la instalación.',
             formEmailError: 'El email no parece correcto. Puedes dejarlo en blanco.',
+            waText: '¡Hola! Me interesa un estudio solar.',
             formOk: '¡Gracias! Hemos recibido tu solicitud. Te llamaremos en menos de una hora (en horario de oficina).',
         },
         ca: {
@@ -273,6 +277,7 @@ window.TELINSOLAR_I18N = {
             altIllustration: 'Il·lustració de la instal·lació «{name}»',
             formError: 'Si us plau, omple el teu nom, un telèfon i l’adreça de la instal·lació.',
             formEmailError: 'El correu no sembla correcte. El pots deixar en blanc.',
+            waText: 'Hola! M’interessa un estudi solar.',
             formOk: 'Gràcies! Hem rebut la teva sol·licitud. Et trucarem en menys d’una hora (en horari d’oficina).',
         },
     },
