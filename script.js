@@ -64,6 +64,7 @@ const chips = document.querySelectorAll('.filters .chip');
 let currentFilter = 'all';
 
 const has = (v) => v !== undefined && v !== null && v !== '' && !Number.isNaN(Number(v));
+const yearsText = (v) => (Number(v) === 1 ? t('year1') : t('years', { n: smart(Number(v)) }));
 const hasBattery = (p) => Number(p.storageKwh) > 0;
 const projectName = (p) => (lang === 'es' ? p.name_es || p.name_ca : p.name_ca || p.name_es) || '';
 const projectDescription = (p) => (lang === 'es' ? p.description_es || p.description_ca : p.description_ca || p.description_es) || '';
@@ -165,7 +166,7 @@ const projectHtml = (p, i) => {
     const kpis = [
         has(p.panelsKwp) && [t('kpiPower'), `${smart(Number(p.panelsKwp))} kWp`],
         has(p.productionKwh) && [t('kpiProduction'), `${num(p.productionKwh)} kWh<small>${esc(t('perYear'))}</small>`],
-        has(p.paybackYears) && [t('kpiPayback'), esc(t('years', { n: smart(Number(p.paybackYears)) }))],
+        has(p.paybackYears) && [t('kpiPayback'), esc(yearsText(p.paybackYears))],
         has(p.costEur) && [t('kpiCost'), `${num(p.costEur)} €`],
     ].filter(Boolean).map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${v}</dd></div>`).join('');
 
@@ -180,7 +181,7 @@ const projectHtml = (p, i) => {
         battery && has(p.batteries) && [t('specBatteries'), num(p.batteries)],
         has(p.consumptionKwh) && [t('specConsumption'), `${num(p.consumptionKwh)} kWh`],
         has(p.productionKwh) && [t('specProduction'), `${num(p.productionKwh)} kWh`],
-        has(p.paybackYears) && [t('specPayback'), t('years', { n: smart(Number(p.paybackYears)) })],
+        has(p.paybackYears) && [t('specPayback'), yearsText(p.paybackYears)],
         has(p.costEur) && [t('specCost'), `${num(p.costEur)} €`],
         ...equipment.map(([k, v]) => [t('equip_' + k), v]),
     ].filter(Boolean).map(([k, v]) => `<tr><th scope="row">${esc(k)}</th><td>${esc(v)}</td></tr>`).join('');
