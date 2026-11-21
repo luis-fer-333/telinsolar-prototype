@@ -23,7 +23,7 @@ window.TELINSOLAR_I18N = {
             'nav.menu': 'Obrir menú',
 
             'hero.eyebrow': 'Energia solar fotovoltaica · Vallès Oriental',
-            'hero.title': 'La teva energia de<br><span class="grad">proximitat honesta</span>',
+            'hero.title': 'La teva energia de <br><span class="grad">proximitat honesta</span>',
             'hero.lead': 'Instal·lem plaques solars per a habitatges i empreses des de la nostra oficina de Lliçà de Vall. T’atenem en persona, responem en menys d’una hora i t’expliquem cada pas sense lletra petita.',
             'hero.cta': 'Demana el teu estudi sense compromís',
             'hero.cta2': 'Veure projectes',

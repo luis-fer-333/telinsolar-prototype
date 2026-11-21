@@ -606,20 +606,23 @@ h1, h2, h3, h4 { font-family: "Sora", sans-serif; line-height: 1.15; font-weight
 
     .nav-toggle { display: flex; }
     .nav-links {
-        position: fixed; inset: 64px 0 auto 0;
+        position: fixed; inset: 72px 0 auto 0;
         flex-direction: column; align-items: stretch; gap: 0;
         background: var(--white);
-        padding: 12px 24px 24px;
+        padding: 8px 24px 24px;
         box-shadow: var(--shadow);
-        transform: translateY(-120%);
-        transition: transform .32s ease;
+        /* Fully off-screen and hidden while closed (otherwise its bottom edge peeks above the header) */
+        transform: translateY(calc(-100% - 80px));
+        visibility: hidden;
+        transition: transform .32s ease, visibility 0s linear .32s;
     }
-    .nav-links.open { transform: none; }
-    .nav-links a:not(.btn) { color: var(--ink); padding: 14px 0; border-bottom: 1px solid var(--line); }
-    .nav-links .btn { margin-top: 14px; }
+    .nav-links.open { transform: none; visibility: visible; transition: transform .32s ease; }
+    .nav-links a:not(.btn) { display: block; color: var(--ink); padding: 14px 0; border-bottom: 1px solid var(--line); }
+    .nav-links .btn { display: flex; margin-top: 16px; }
 }
 @media (max-width: 560px) {
     .section { padding: 64px 0; }
+    .hero-content h1 br { display: none; }
     .hero { padding: 130px 0 80px; }
     .cards, .timeline, .projects { grid-template-columns: 1fr; }
     .payplan { padding: 24px 20px; }
