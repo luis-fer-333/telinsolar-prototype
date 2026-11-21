@@ -1,0 +1,29 @@
+{
+  "name_ca": "Masia aïllada",
+  "name_es": "Masía aislada",
+  "location": "Garrotxa",
+  "published": true,
+  "example": true,
+  "type": "aillada",
+  "panelsKwp": 8,
+  "panels": 18,
+  "optimizers": false,
+  "inverterKw": 6,
+  "storageKwh": 15,
+  "batteries": 3,
+  "consumptionKwh": 5000,
+  "loads": [
+    {
+      "key": "pump",
+      "detail": "1,5 CV"
+    },
+    {
+      "key": "aerothermal",
+      "detail": "6 kW"
+    }
+  ],
+  "productionKwh": 5200,
+  "paybackYears": 7,
+  "costEur": 16000,
+  "illustration": "campo"
+}

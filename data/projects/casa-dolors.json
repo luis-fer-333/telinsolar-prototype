@@ -1,0 +1,42 @@
+{
+  "name_ca": "Casa Dolors",
+  "location": "Ripollès",
+  "featured": true,
+  "published": true,
+  "example": false,
+  "type": "aillada",
+  "panelsKwp": 6.6,
+  "panels": 16,
+  "optimizers": false,
+  "inverterKw": 5,
+  "storageKwh": 10.2,
+  "batteries": 2,
+  "consumptionKwh": 3000,
+  "loads": [
+    {
+      "key": "pool",
+      "detail": "3/4 CV"
+    },
+    {
+      "key": "ev",
+      "detail": "16 kW"
+    },
+    {
+      "key": "aerothermal",
+      "detail": "8 kW"
+    }
+  ],
+  "productionKwh": 2500,
+  "paybackYears": 3.5,
+  "costEur": 12000,
+  "equipment": {
+    "panels": "AIKO",
+    "inverter": "Deye (híbrid)",
+    "battery": "Deye (48 V)"
+  },
+  "photos": [
+    "media/projectes/casa-dolors-1.jpg",
+    "media/projectes/casa-dolors-2.jpg"
+  ],
+  "illustration": "house-bat"
+}

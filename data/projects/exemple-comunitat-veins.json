@@ -1,0 +1,25 @@
+{
+  "name_ca": "Comunitat de veïns",
+  "name_es": "Comunidad de vecinos",
+  "location": "Vallès Oriental",
+  "published": true,
+  "example": true,
+  "type": "connectada",
+  "panelsKwp": 15,
+  "panels": 34,
+  "optimizers": false,
+  "inverterKw": 15,
+  "consumptionKwh": 30000,
+  "loads": [
+    {
+      "key": "lift"
+    },
+    {
+      "key": "common"
+    }
+  ],
+  "productionKwh": 22500,
+  "paybackYears": 6,
+  "costEur": 18000,
+  "illustration": "edificio"
+}

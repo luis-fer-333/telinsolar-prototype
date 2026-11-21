@@ -97,8 +97,9 @@
 
     <!-- Projects -->
     <!--
-        Los proyectos NO se escriben aquí: están en projects.js (un bloque por proyecto).
-        Este HTML solo tiene el marco; script.js dibuja las fichas en el idioma elegido.
+        Los proyectos NO se escriben aquí: cada uno es un archivo en data/projects/*.json,
+        editable desde el panel Pages CMS (ver README.md). scripts/build.mjs los une en data/projects-index.js
+        y script.js dibuja las fichas en el idioma elegido.
     -->
     <section class="section section-alt" id="proyectos">
         <svg class="svg-defs" aria-hidden="true" focusable="false">
@@ -482,6 +483,9 @@
                     <label for="message" data-i18n="form.needs">¿Qué necesitas?</label>
                     <textarea id="message" name="message" rows="3" data-i18n-attr="placeholder:form.needs.ph" placeholder="Consumo aproximado, piscina, coche eléctrico, aerotermia…"></textarea>
                 </div>
+                <div class="hp" aria-hidden="true">
+                    <label>No omplis aquest camp <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off"></label>
+                </div>
                 <button type="submit" class="btn btn-lg btn-block" data-i18n="form.submit">Enviar solicitud</button>
                 <p class="form-note" id="formNote" role="status"></p>
                 <p class="privacy-note" data-i18n="form.privacy">Al enviar aceptas nuestra política de protección de datos (RGPD / LOPDGDD).</p>
@@ -522,8 +526,9 @@
         </div>
     </footer>
 
+    <script src="config.js"></script>
     <script src="i18n.js"></script>
-    <script src="projects.js"></script>
+    <script src="data/projects-index.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
