@@ -1,0 +1,30 @@
+{
+  "name_ca": "Exemple 4",
+  "name_es": "Ejemplo 4",
+  "location": "Maresme",
+  "type": "connectada",
+  "date": "2026-07-12",
+  "published": true,
+  "featured": false,
+  "example": true,
+  "panelsKwp": 7.2,
+  "panels": 16,
+  "optimizers": false,
+  "inverterKw": 6,
+  "consumptionKwh": 8700,
+  "loads": [
+    {
+      "key": "ac"
+    }
+  ],
+  "productionKwh": 9700,
+  "paybackYears": 6.9,
+  "costEur": 9400,
+  "photos": [
+    "media/projectes/exemple-04-1.jpg",
+    "media/projectes/exemple-04-2.jpg",
+    "media/projectes/exemple-04-3.jpg",
+    "media/projectes/exemple-04-4.jpg"
+  ],
+  "illustration": "house"
+}

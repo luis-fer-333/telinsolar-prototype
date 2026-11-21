@@ -89,5 +89,5 @@ Lleva un campo trampa oculto para frenar el spam de robots.
 - [x] Teléfono real (611 603 902).
 - [ ] Datos definitivos de **Casa Dolors** (la nota y el estudio no coinciden: 6,6 vs 9,84 kWp, 5 vs 12 kW, 10,2 vs 16 kWh).
 - [ ] Permiso por escrito de los clientes para publicar fotos de su casa.
-- [ ] Borrar los 4 proyectos de ejemplo (`data/projects/exemple-*.json`) o sustituirlos por reales.
+- [ ] Completar los proyectos «Exemple 1-11» (fotos reales, datos ESTIMADOS: nombre, comarca, ficha) y quitarles la marca de ejemplo.
 - [ ] Página de política de privacidad (RGPD) enlazada desde el formulario.
