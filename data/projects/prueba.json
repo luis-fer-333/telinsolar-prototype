@@ -1,0 +1,15 @@
+{
+  "name_ca": "prueba",
+  "location": "tets",
+  "type": "connectada",
+  "date": "2026-11-21",
+  "published": true,
+  "featured": false,
+  "example": false,
+  "panelsKwp": 0,
+  "panels": 0,
+  "optimizers": false,
+  "consumptionKwh": 0,
+  "productionKwh": 0,
+  "illustration": "house"
+}
