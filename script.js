@@ -66,16 +66,48 @@ const matches = (p, filter) =>
     filter === 'all' ||
     (filter === 'baterias' ? p.storageKwh > 0 : p.type === filter);
 
-const mediaHtml = (p, name) => {
-    const m = p.media;
-    if (m && m.type === 'video') {
+const mediaItemHtml = (m, name) => {
+    if (m.type === 'video') {
         return `<video src="${esc(m.src)}" ${m.poster ? `poster="${esc(m.poster)}"` : ''} controls preload="none" playsinline></video>`;
     }
-    if (m && m.type === 'image') {
-        return `<img src="${esc(m.src)}" alt="${esc(m.alt ? localized(m.alt) : name)}" loading="lazy">`;
-    }
-    return `<svg viewBox="0 0 320 180" role="img" aria-label="${esc(t('altIllustration', { name }))}"><use href="#ill-${esc(p.illustration || 'house')}"></use></svg>`;
+    return `<img src="${esc(m.src)}" alt="${esc(m.alt ? localized(m.alt) : name)}" loading="lazy">`;
 };
+
+const mediaHtml = (p, name) => {
+    const items = (Array.isArray(p.media) ? p.media : p.media ? [p.media] : []).filter(m => m && m.src);
+    if (!items.length) {
+        return `<svg viewBox="0 0 320 180" role="img" aria-label="${esc(t('altIllustration', { name }))}"><use href="#ill-${esc(p.illustration || 'house')}"></use></svg>`;
+    }
+    if (items.length === 1) return mediaItemHtml(items[0], name);
+    const slides = items.map((m, i) =>
+        `<div class="slide${i === 0 ? ' is-active' : ''}" ${i === 0 ? '' : 'aria-hidden="true"'}>${mediaItemHtml(m, name)}</div>`).join('');
+    const dots = items.map((_, i) => `<i class="${i === 0 ? 'is-active' : ''}"></i>`).join('');
+    return `
+        <div class="slider" data-index="0">
+            ${slides}
+            <button type="button" class="slider-btn prev" data-dir="-1" aria-label="${esc(t('prevPhoto'))}">‹</button>
+            <button type="button" class="slider-btn next" data-dir="1" aria-label="${esc(t('nextPhoto'))}">›</button>
+            <span class="slider-dots" aria-hidden="true">${dots}</span>
+        </div>`;
+};
+
+// Slider navigation (event delegation, works after re-rendering)
+document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.slider-btn');
+    if (!btn) return;
+    const slider = btn.closest('.slider');
+    const slides = slider.querySelectorAll('.slide');
+    const dots = slider.querySelectorAll('.slider-dots i');
+    const next = (Number(slider.dataset.index) + Number(btn.dataset.dir) + slides.length) % slides.length;
+    slider.dataset.index = next;
+    slides.forEach((s, i) => {
+        s.classList.toggle('is-active', i === next);
+        if (i === next) s.removeAttribute('aria-hidden'); else s.setAttribute('aria-hidden', 'true');
+        const v = s.querySelector('video');
+        if (v && i !== next) v.pause();
+    });
+    dots.forEach((d, i) => d.classList.toggle('is-active', i === next));
+});
 
 const projectHtml = (p, i) => {
     const name = localized(p.name);

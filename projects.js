@@ -22,9 +22,10 @@
  *   paybackYears    Amortización, en años.
  *   costEur         Coste aproximado, en euros.
  *   illustration    Dibujo si no hay foto: 'house', 'house-bat', 'nave', 'campo', 'edificio'.
- *   media           Foto o vídeo (opcional). Ejemplos:
- *                     { type: 'image', src: 'media/casa-dolors.jpg' }
- *                     { type: 'video', src: 'media/casa-dolors.mp4', poster: 'media/casa-dolors.jpg' }
+ *   media           Fotos y/o vídeos (opcional). Un elemento o una lista; con varios se muestran
+ *                   en un carrusel con flechas. Ejemplos:
+ *                     { type: 'image', src: 'media/casa-dolors-1.jpg', alt: { es: '...', ca: '...' } }
+ *                     { type: 'video', src: 'media/casa-dolors.mp4', poster: 'media/casa-dolors-1.jpg' }
  *   document        PDF con la ficha o la propuesta (opcional), p. ej. 'docs/casa-dolors.pdf'.
  */
 window.TELINSOLAR_PROJECTS = [
@@ -50,7 +51,24 @@ window.TELINSOLAR_PROJECTS = [
         paybackYears: 3.5,
         costEur: 12000,
         illustration: 'house-bat',
-        media: null,
+        media: [
+            {
+                type: 'image',
+                src: 'media/casa-dolors-1.jpg',
+                alt: {
+                    es: 'Vista aérea de Casa Dolors con 16 placas solares sobre el tejado del porche',
+                    ca: 'Vista aèria de Casa Dolors amb 16 plaques solars sobre la teulada del porxo',
+                },
+            },
+            {
+                type: 'image',
+                src: 'media/casa-dolors-2.jpg',
+                alt: {
+                    es: 'Casa Dolors, masía de piedra en el Ripollès, con la instalación solar entre el bosque',
+                    ca: 'Casa Dolors, masia de pedra al Ripollès, amb la instal·lació solar enmig del bosc',
+                },
+            },
+        ],
         document: null,
     },
 
