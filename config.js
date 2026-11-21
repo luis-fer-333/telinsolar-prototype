@@ -11,7 +11,7 @@
  */
 window.TELINSOLAR_CONFIG = {
     form: {
-        endpoint: '',
+        endpoint: 'https://formspree.io/f/mrpqyznv',
         accessKey: '',
     },
 };

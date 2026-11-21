@@ -61,7 +61,7 @@ GitHub Pages gratuito necesita que el repositorio sea **público** (el contenido
 5. Pásale la guía [`docs/guia-panell.md`](docs/guia-panell.md) (en catalán).
 
 ### 4. Formulario de contacto
-Ahora mismo el formulario está en **modo demostración** (valida, pero no envía nada).
+El formulario envía a Formspree (`https://formspree.io/f/mrpqyznv`, configurado en `config.js`).
 
 1. Crea una cuenta gratuita en **[Formspree](https://formspree.io)** con el email donde deben llegar las solicitudes
    y crea un formulario. Copia su URL (`https://formspree.io/f/XXXXXXXX`).
