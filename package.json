@@ -1,0 +1,12 @@
+{
+  "name": "telinsolar-web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dist": "node scripts/build.mjs --dist"
+  },
+  "devDependencies": {
+    "sharp": "0.33.5"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name_ca": "Habitatge al Maresme",
+  "name_es": "Vivienda en el Maresme",
+  "location": "Maresme",
+  "published": true,
+  "example": true,
+  "type": "connectada",
+  "panelsKwp": 4.5,
+  "panels": 10,
+  "optimizers": true,
+  "inverterKw": 4,
+  "storageKwh": 5,
+  "batteries": 1,
+  "consumptionKwh": 4500,
+  "loads": [
+    {
+      "key": "ev",
+      "detail": "7,4 kW"
+    },
+    {
+      "key": "ac"
+    }
+  ],
+  "productionKwh": 6700,
+  "paybackYears": 6,
+  "costEur": 7500,
+  "illustration": "house-bat"
+}

@@ -1,0 +1,241 @@
+# Configuració del panell d'edició (Pages CMS · https://app.pagescms.org)
+# Defineix el formulari que fa servir el Lluís per afegir i editar instal·lacions.
+# Cada instal·lació es desa com un fitxer JSON a data/projects/.
+
+media:
+  - name: fotos
+    label: Fotos de projectes
+    input: media/projectes
+    output: media/projectes
+    extensions: [jpg, jpeg, png, webp]
+  - name: documents
+    label: Documents (PDF)
+    input: docs/projectes
+    output: docs/projectes
+    extensions: [pdf]
+
+content:
+  - name: projectes
+    label: Instal·lacions
+    description: "Projectes que es mostren a l'apartat «Els nostres projectes» del web. Després de desar, el web s'actualitza sol en 1-2 minuts."
+    type: collection
+    path: data/projects
+    filename: "{primary}.json"
+    format: json
+    view:
+      primary: name_ca
+      fields: [name_ca, location, type, published]
+      sort: [name_ca]
+    fields:
+      # ---------- Identificació ----------
+      - name: name_ca
+        label: Nom del projecte
+        description: "Com es mostrarà al web. Ex.: Casa Dolors"
+        type: string
+        required: true
+      - name: name_es
+        label: Nom en castellà (opcional)
+        description: "Només si canvia en castellà. Ex.: Masía aislada. Si es deixa buit, es fa servir el nom en català."
+        type: string
+      - name: location
+        label: Comarca o població
+        description: "No hi posis l'adreça exacta del client. Ex.: Ripollès"
+        type: string
+        required: true
+      - name: type
+        label: Tipus d'instal·lació
+        type: select
+        required: true
+        options:
+          values:
+            - value: aillada
+              label: Aïllada
+            - value: connectada
+              label: Connectada a xarxa
+      - name: date
+        label: Data de posada en marxa
+        description: "Opcional. Els projectes més recents surten primer."
+        type: date
+      - name: published
+        label: Publicat al web
+        description: "Desmarca-ho per amagar el projecte sense esborrar-lo."
+        type: boolean
+        default: true
+      - name: featured
+        label: Destacat (surt el primer)
+        type: boolean
+        default: false
+      - name: example
+        label: Dades d'exemple
+        type: boolean
+        hidden: true
+
+      # ---------- Descripció ----------
+      - name: description_ca
+        label: Descripció breu (opcional)
+        description: "Una o dues frases. Ex.: Segona residència aïllada de la xarxa amb piscina i aerotèrmia."
+        type: text
+        options:
+          maxlength: 300
+      - name: description_es
+        label: Descripció en castellà (opcional)
+        type: text
+        options:
+          maxlength: 300
+
+      # ---------- Fitxa tècnica ----------
+      - name: panelsKwp
+        label: Potència de panells (kWp)
+        type: number
+        required: true
+        options:
+          min: 0
+          step: 0.01
+      - name: panels
+        label: Nombre de panells
+        type: number
+        required: true
+        options:
+          min: 0
+          step: 1
+      - name: optimizers
+        label: Porta optimitzadors
+        type: boolean
+        default: false
+      - name: inverterKw
+        label: Potència de l'inversor (kW)
+        description: "Deixa-ho buit si no n'hi ha."
+        type: number
+        options:
+          min: 0
+          step: 0.1
+      - name: microinverterKw
+        label: Potència dels microinversors (kW)
+        description: "Deixa-ho buit si no n'hi ha."
+        type: number
+        options:
+          min: 0
+          step: 0.1
+      - name: storageKwh
+        label: Emmagatzematge (kWh)
+        description: "Deixa-ho buit si no hi ha bateries."
+        type: number
+        options:
+          min: 0
+          step: 0.1
+      - name: batteries
+        label: Nombre de bateries
+        type: number
+        options:
+          min: 0
+          step: 1
+      - name: equipment
+        label: Equips instal·lats (marca i model)
+        description: "Opcional. Ex.: AIKO A615 · Deye SUN-12K · Deye SE-F16"
+        type: object
+        fields:
+          - name: panels
+            label: Panells
+            type: string
+          - name: inverter
+            label: Inversor
+            type: string
+          - name: battery
+            label: Bateries
+            type: string
+
+      # ---------- Consum i resultats ----------
+      - name: consumptionKwh
+        label: Consum anual (kWh)
+        type: number
+        required: true
+        options:
+          min: 0
+          step: 1
+      - name: loads
+        label: Consums destacats
+        description: "Piscina, carregador de cotxe, aerotèrmia… Ajuden el client a identificar-se amb la casa."
+        type: object
+        list: true
+        fields:
+          - name: key
+            label: Consum
+            type: select
+            required: true
+            options:
+              values:
+                - value: pool
+                  label: Piscina
+                - value: ev
+                  label: Carregador de cotxe
+                - value: aerothermal
+                  label: Aerotèrmia
+                - value: ac
+                  label: Aire condicionat
+                - value: pump
+                  label: Bomba d'aigua / pou
+                - value: machinery
+                  label: Maquinària
+                - value: common
+                  label: Zones comunes
+                - value: lift
+                  label: Ascensor
+          - name: detail
+            label: Potència o detall
+            description: "Ex.: 3/4 CV, 16 kW"
+            type: string
+      - name: productionKwh
+        label: Producció anual (kWh)
+        type: number
+        required: true
+        options:
+          min: 0
+          step: 1
+      - name: paybackYears
+        label: Amortització (anys)
+        type: number
+        options:
+          min: 0
+          step: 0.1
+      - name: costEur
+        label: Cost aproximat (€)
+        type: number
+        options:
+          min: 0
+          step: 1
+
+      # ---------- Fotos, vídeos i documents ----------
+      - name: photos
+        label: Fotos
+        description: "La primera és la que es veu primer. Millor en horitzontal. No cal reduir-les: el web les optimitza."
+        type: image
+        options:
+          media: fotos
+          multiple: true
+      - name: videos
+        label: Vídeos (enllaços de YouTube)
+        description: "Puja el vídeo a YouTube (pot ser «ocult») i enganxa'n l'enllaç aquí."
+        type: string
+        list: true
+      - name: document
+        label: Document PDF (opcional)
+        description: "Fitxa o proposta SENSE dades personals del client (nom, adreça, coordenades)."
+        type: file
+        options:
+          media: documents
+      - name: illustration
+        label: Dibuix si no hi ha fotos
+        type: select
+        default: house
+        options:
+          values:
+            - value: house
+              label: Casa
+            - value: house-bat
+              label: Casa amb bateria
+            - value: nave
+              label: Nau / comerç
+            - value: campo
+              label: Instal·lació a terra
+            - value: edificio
+              label: Edifici
