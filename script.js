@@ -20,7 +20,7 @@ navLinks.querySelectorAll('a').forEach(a =>
 
 // ===== Reveal on scroll =====
 const revealTargets = document.querySelectorAll(
-    '.card, .step, .section-head, .benefits-content, .benefits-visual, .cta-form, .cta-text'
+    '.card, .project, .projects-totals, .step, .section-head, .benefits-content, .benefits-visual, .cta-form, .cta-text'
 );
 revealTargets.forEach(el => el.classList.add('reveal'));
 
@@ -42,8 +42,6 @@ const countObserver = new IntersectionObserver((entries) => {
         if (!entry.isIntersecting) return;
         const el = entry.target;
         const target = parseInt(el.dataset.count, 10);
-        const suffix = target === 100 || target === 30 ? '' : ''; // plain numbers
-        let start = 0;
         const duration = 1400;
         const startTime = performance.now();
         const tick = (now) => {
@@ -58,6 +56,40 @@ const countObserver = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.5 });
 counters.forEach(c => countObserver.observe(c));
+
+// ===== Projects: totals + filters =====
+const projects = [...document.querySelectorAll('.project')];
+const fmt = (n, decimals = 0) =>
+    n.toLocaleString('es-ES', { minimumFractionDigits: decimals, maximumFractionDigits: decimals, useGrouping: true });
+const sum = (key) => projects.reduce((acc, p) => acc + (parseFloat(p.dataset[key]) || 0), 0);
+const totals = {
+    count: fmt(projects.length),
+    kwp: fmt(sum('kwp'), 1),
+    mwh: fmt(sum('kwh') / 1000),
+    co2: fmt(sum('co2'), 1),
+};
+document.querySelectorAll('[data-total]').forEach(el => { el.textContent = totals[el.dataset.total]; });
+
+const chips = document.querySelectorAll('.filters .chip');
+const emptyNote = document.getElementById('projectsEmpty');
+chips.forEach(chip => chip.addEventListener('click', () => {
+    const filter = chip.dataset.filter;
+    chips.forEach(c => {
+        const active = c === chip;
+        c.classList.toggle('is-active', active);
+        c.setAttribute('aria-pressed', String(active));
+    });
+    let shown = 0;
+    projects.forEach(p => {
+        const match = filter === 'all' || p.dataset.type.split(' ').includes(filter);
+        p.hidden = !match;
+        if (match) {
+            shown++;
+            p.classList.add('visible'); // ensure revealed cards show immediately when filtered in
+        }
+    });
+    emptyNote.hidden = shown > 0;
+}));
 
 // ===== Contact form (demo handler) =====
 const form = document.getElementById('contactForm');
